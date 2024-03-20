@@ -1,0 +1,41 @@
+{
+  "canisters": {
+    "hurtado_test_backend": {
+      "candid": "src/hurtado_test_backend/hurtado_test_backend.did",
+      "declarations": {
+        "node_compatibility": true
+      },
+      "package": "hurtado_test_backend",
+      "type": "rust"
+    },
+    "hurtado_test_frontend": {
+      "dependencies": [
+        "hurtado_test_backend"
+      ],
+      "source": [
+        "src/hurtado_test_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "hurtado_test_frontend"
+    },
+    "internet_identity": {
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "frontend": {},
+      "remote": {
+        "id": {
+          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+        }
+      },
+      "type": "custom",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
