@@ -1,3 +1,16 @@
+type ICPFile = record { id : nat; owner : text; data : vec nat8; name : text };
+type ICPFileError = variant { Error : text; NotFound; NotAuthorized };
+type ICPFileStat = record { id : nat; name : text; size : nat64 };
+type Result = variant { Ok; Err : ICPFileError };
+type Result_1 = variant { Ok : nat; Err : ICPFileError };
+type Result_2 = variant { Ok : ICPFile; Err : ICPFileError };
 service : {
-    "greet": (text) -> (text) query;
+add_chunk : (nat, vec nat8) -> (Result);
+create_file : (ICPFile) -> (Result_1);
+delete_file : (nat) -> (Result_1);
+export_candid : () -> (text) query;
+get_file : (nat) -> (Result_2) query;
+get_files : () -> (vec ICPFileStat) query;
+greet : (text) -> (text) query;
+truncate_file : (nat) -> (Result);
 }

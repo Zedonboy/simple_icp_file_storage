@@ -1,10 +1,35 @@
-# hurtado_test
+# ICP File Storage
 
-Welcome to your new hurtado_test project and to the internet computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+In Fulfillment of Rust Interview Quesion.
 
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
+The Above Repo contains ICP File Storage, where user can select a file on their computer and upload.
 
-To learn more before you start working with hurtado_test, see the following documentation available online:
+Video Link [here](https://youtu.be/dJ1N1DxPBs0)
+
+
+The second Questions
+
+## Question: How would you create this architecture?
+
+1. Implement File Storage APIs in a canister  for the user operations
+2. Compile the canister to WASM
+3. hardcode the WASM bytes array into the Master canister 
+
+## Question: How would you receive ICP and use it?
+
+1. I will generate an ICP address for the user, so user can send ICP
+2. When the user sends ICP, the user notifies the Master canister.
+3. Master canister verifies if the user sent lCP to that address
+4. The canister use this ICP tokens to create cycles for the user canisters
+
+## Question: How would you create canisters on demand?
+
+1. After Master canister verifies ICP payments
+2. It will make [API](https://docs.rs/ic-cdk/latest/ic_cdk/api/management_canister/main/index.html) call to create Canister, using its principal and user principal as controllers and depositing cycles into it.
+3. Then use the hard coded WASM byte array, to make [INSTALL_CODE API call](https://docs.rs/ic-cdk/latest/ic_cdk/api/management_canister/main/fn.install_code.html)
+4. Then save the user principal associated with their own Canister id 
+
+
 
 - [Quick Start](https://internetcomputer.org/docs/current/developer-docs/setup/deploy-locally)
 - [SDK Developer Tools](https://internetcomputer.org/docs/current/developer-docs/setup/install)

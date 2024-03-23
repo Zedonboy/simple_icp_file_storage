@@ -14,5 +14,8 @@
   "type": "module",
   "workspaces": [
     "src/hurtado_test_frontend"
-  ]
+  ],
+  "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2"
+  }
 }
